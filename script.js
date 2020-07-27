@@ -53,8 +53,7 @@ $(document).ready(function () {
     for (var i = 0; i < timeblock.length; i++) {
 
         var row = $("<div>");
-        row.addClass("row");
-    
+        row.addClass("row");    
     
         var time = $("<div>");
         time.addClass("col-2");
@@ -62,17 +61,23 @@ $(document).ready(function () {
     
         var activity = $("<div>");
         activity.addClass("col-9");
+
+        var activityInput = $("<textarea>");
+        activity.append(activityInput);
     
         var save = $("<div>");
         save.addClass("col-1");
         save.addClass("saveBtn");
-    
-    
+        
+        save.on("click", function(event) {
+            alert("activity saved");
+            console.log(event);
+        });
+       
         row.append(time);
         row.append(activity);
         row.append(save);    
-        
-    
+            
         $(".container").append(row);
     
     }
