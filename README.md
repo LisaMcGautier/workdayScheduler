@@ -43,3 +43,5 @@ Working on the logic and the syntax to recreate in jquery that I created in HTML
 Worked on the `row`, `time`, `activity`, and `save` variables to make the code more concise and efficient.  Commented out HTML `<div>` to check appearance of the page.  Added `$(document).ready(function () {}` and moved the script.js script tag AFTER the jQuery CDNs in the HTML file.  First row appears.
 
 Placed the first row into the `for loop` to create the visual representation of the calendar page.  Time of day appears in time column.  Next steps will involve listening for clicks on the activity column and allowing user input.  Will also need to listen for clicks on save column to save input to local storage.
+
+Discovered the `.saveBtn` class in the CSS file, and added it to the save column.  Wondering if I will need to rename my variables based on the predetermined CSS classes...

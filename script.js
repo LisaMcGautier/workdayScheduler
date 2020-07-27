@@ -65,6 +65,7 @@ $(document).ready(function () {
     
         var save = $("<div>");
         save.addClass("col-1");
+        save.addClass("saveBtn");
     
     
         row.append(time);
