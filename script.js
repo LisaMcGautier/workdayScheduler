@@ -13,10 +13,29 @@ var timeblock = [
     "5 PM",
 ];
 
-var block = $("<div>");
+// var block = $("<div>");
+
+var row = $("<div> class = 'row'");
+
+
+var time = $("<div> class = 'col-2'");
+var activty = $("<div> class = 'col-9'");
+var save = $("<div> class = 'col-1'");
+
+$(".row").append(time);
+$(".row").append(activity);
+$(".row").append(save);
 
 
 
+for (var i = 0; i < timeblock.length; i++) {
+
+    var hour = $(".row");
+    time.text(timeblock[i]);
+
+    $(".container").append(hour);
+
+  }
 
 
 

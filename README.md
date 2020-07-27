@@ -35,3 +35,7 @@ GIVEN I am using a daily planner to create a schedule
 
 Started by creating a visual representation in the HTML file of what the elements that will need to be created in jQuery will look like.  Used the CSS file to create borders to outline the grid pattern within the container.  Borrowed the HTML from an earlier project, responsivePortfolio; test.html.
 Trying to work out the logic that will create the columns within each row using jQuery.
+
+7/27
+
+Working on the logic and the syntax to recreate in jquery what I created in HTML. I need to create a <div> class = row to contain three <div> class = columns.  The row can then be repeated in a function to generate the day in calendar view.
