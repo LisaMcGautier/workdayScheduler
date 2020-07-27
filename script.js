@@ -19,7 +19,6 @@ $(document).ready(function () {
 
     // var row = $("<div> class = 'row'");
 
-
     // var time = $("<div> class = 'col-2'");
     // var activty = $("<div> class = 'col-9'");
     // var save = $("<div> class = 'col-1'");
@@ -29,33 +28,53 @@ $(document).ready(function () {
     // $(".row").append(save);
 
 
-    var row = $("<div>");
-    row.addClass("row");
+    // var row = $("<div>");
+    // row.addClass("row");
+
+    // var time = $("<div>");
+    // time.addClass("col-2");
+    // time.text(timeblock[i]);
+
+    // var activity = $("<div>");
+    // activity.addClass("col-9");
+
+    // var save = $("<div>");
+    // save.addClass("col-1");
+
+    // row.append(time);
+    // row.append(activity);
+    // row.append(save);
 
 
-    var time = $("<div>");
-    time.addClass("col-2");
-    time.text(timeblock[i]);
+    // for (var i = 0; i < timeblock.length; i++) {       
+    //     $(".container").append(row);
+    // };
 
-    var activity = $("<div>");
-    activity.addClass("col-9");
+    for (var i = 0; i < timeblock.length; i++) {
 
-    var save = $("<div>");
-    save.addClass("col-1");
-
-
-    row.append(time);
-    row.append(activity);
-    row.append(save);
-
-
-
-
-    for (var i = 0; i < timeblock.length; i++) {       
-
+        var row = $("<div>");
+        row.addClass("row");
+    
+    
+        var time = $("<div>");
+        time.addClass("col-2");
+        time.text(timeblock[i]);
+    
+        var activity = $("<div>");
+        activity.addClass("col-9");
+    
+        var save = $("<div>");
+        save.addClass("col-1");
+    
+    
+        row.append(time);
+        row.append(activity);
+        row.append(save);    
+        
+    
         $(".container").append(row);
-
-    };
+    
+    }
 
 
 
