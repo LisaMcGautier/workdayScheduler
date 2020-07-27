@@ -78,3 +78,18 @@ div:not(.row) {
   border: solid 1px;
   min-height: 50px; 
 }
+
+.col-2 {
+  border: solid 1px;
+  min-height: 50px; 
+}
+
+.col-9 {
+  border: solid 1px;
+  min-height: 50px; 
+}
+
+.col-1 {
+  border: solid 1px;
+  min-height: 50px; 
+}

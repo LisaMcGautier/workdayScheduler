@@ -38,4 +38,6 @@ Trying to work out the logic that will create the columns within each row using 
 
 7/27
 
-Working on the logic and the syntax to recreate in jquery what I created in HTML. I need to create a <div> class = row to contain three <div> class = columns.  The row can then be repeated in a function to generate the day in calendar view.
+Working on the logic and the syntax to recreate in jquery what I created in HTML. I need to create a `<div> class = row` to contain three `<div> class = columns`.  The row can then be repeated in a function to generate the day in calendar view.
+
+Worked on the `row`, `time`, `activity`, and `save` variables to make the code more concise and efficient.  Commented out HTML `<div>` to check appearance of the page.  Added `$(document).ready(function () {}` and moved the script.js script tag AFTER the jQuery CDNs in the HTML file.
