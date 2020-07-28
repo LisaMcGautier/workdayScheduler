@@ -59,4 +59,8 @@ Tried adding a similar `id` to the save column and then realized that the `id` a
 
 Currently working on the `save.on("click", function(event)`, using an `alert` and `console.log()` to help troubleshoot.  Have tried various configurations within the `alert` to contain the `activity` or `activityInput`and `time` (also `id`).  So far, the best result alerts "activity saved[object Object][object Object]", so I think I need to stringify the results. 
 
+Added an attribute `data-timeblock` to both the activity and save columns.  In order to save the activityInput, local storage requires a key and a value.
+
+It took a long time and help from google, jquery.com, and stackoverflow (https://stackoverflow.com/questions/4191386/jquery-how-to-find-an-element-based-on-a-data-attribute-value), but I was able find the `time` value and `activity` input by traversing the DOM in order to be able to save them into variables `timeblockId` and `userInput` and create the key and value required for local storage.
+
 

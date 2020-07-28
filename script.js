@@ -17,7 +17,7 @@ $(document).ready(function () {
 
 
 
-    for (var i = 0; i <= timeblock.length; i++) {
+    for (var i = 0; i < timeblock.length; i++) {
 
         var row = $("<div>");
         row.addClass("row");    
@@ -31,17 +31,35 @@ $(document).ready(function () {
         activity.attr("id", "" + (timeblock[i]));
 
         var activityInput = $("<textarea>");
+        activityInput.attr("data-timeblock", timeblock[i]);
         activity.append(activityInput);
 
     
         var save = $("<div>");
         save.addClass("col-1");
         save.addClass("saveBtn");
-        // save.attr("id", "" + (timeblock[i]));
+        save.attr("data-timeblock", timeblock[i]);
         
         save.on("click", function(event) {    
-            alert("activity saved" + activity + time);
-            console.log(event);
+            alert("activity saved");
+            // console.log(event);
+            // console.log(event.target);
+            // console.log(event.target.dataset);
+            // console.log(event.target.dataset.timeblock);
+
+            var timeblockId = (event.target.dataset.timeblock);
+            console.log(timeblockId);
+
+            // console.log($(".col-9").find`[data-timeblock='${timeblockId}']`);
+            // console.log($("textarea[data-timeblock='" + timeblockId + "']").val());
+            
+            var userInput = $("textarea[data-timeblock='" + timeblockId + "']").val();
+            console.log(userInput);
+
+            localStorage.setItem(timeblockId, userInput);
+            
+            // console.log(activity);
+            // console.log(time);
         });
        
         row.append(time);
