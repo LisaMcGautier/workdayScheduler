@@ -15,42 +15,9 @@ $(document).ready(function () {
         "5 PM",
     ];
 
-    // var block = $("<div>");
-
-    // var row = $("<div> class = 'row'");
-
-    // var time = $("<div> class = 'col-2'");
-    // var activty = $("<div> class = 'col-9'");
-    // var save = $("<div> class = 'col-1'");
-
-    // $(".row").append(time);
-    // $(".row").append(activity);
-    // $(".row").append(save);
 
 
-    // var row = $("<div>");
-    // row.addClass("row");
-
-    // var time = $("<div>");
-    // time.addClass("col-2");
-    // time.text(timeblock[i]);
-
-    // var activity = $("<div>");
-    // activity.addClass("col-9");
-
-    // var save = $("<div>");
-    // save.addClass("col-1");
-
-    // row.append(time);
-    // row.append(activity);
-    // row.append(save);
-
-
-    // for (var i = 0; i < timeblock.length; i++) {       
-    //     $(".container").append(row);
-    // };
-
-    for (var i = 0; i < timeblock.length; i++) {
+    for (var i = 0; i <= timeblock.length; i++) {
 
         var row = $("<div>");
         row.addClass("row");    
@@ -61,16 +28,19 @@ $(document).ready(function () {
     
         var activity = $("<div>");
         activity.addClass("col-9");
+        activity.attr("id", "" + (timeblock[i]));
 
         var activityInput = $("<textarea>");
         activity.append(activityInput);
+
     
         var save = $("<div>");
         save.addClass("col-1");
         save.addClass("saveBtn");
+        // save.attr("id", "" + (timeblock[i]));
         
-        save.on("click", function(event) {
-            alert("activity saved");
+        save.on("click", function(event) {    
+            alert("activity saved" + activity + time);
             console.log(event);
         });
        

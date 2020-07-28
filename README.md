@@ -49,3 +49,14 @@ Discovered the `.saveBtn` class in the CSS file, and added it to the save column
 Created a variable `activityInput` in a new, dynamic HTML tag and appended it to the activity column.  Adjusted the CSS of the text area to use 100% of the height and width of the activity column.
 
 Added an event handler to "listen" for click events on the save column.  Next steps will include saving activityInput to local storage on save click event.
+
+7/28
+
+Removed commented out blocks of code from script.js and index.html files to make reading easier.
+
+Added `id` attribute to the `activity` variable, and checked the console to see that is is updated dynamically.
+Tried adding a similar `id` to the save column and then realized that the `id` attribute should be unique.
+
+Currently working on the `save.on("click", function(event)`, using an `alert` and `console.log()` to help troubleshoot.  Have tried various configurations within the `alert` to contain the `activity` or `activityInput`and `time` (also `id`).  So far, the best result alerts "activity saved[object Object][object Object]", so I think I need to stringify the results. 
+
+
