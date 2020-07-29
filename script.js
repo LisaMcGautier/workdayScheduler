@@ -1,17 +1,17 @@
+// THIS LINE IS REQUIRED FOR JAVASCRIPT TO READ JQUERY COMMANDS.
 $(document).ready(function () {
 
+    // THE div "container" IS CREATED IN THE `index.html` file.
     $(".container").show();
 
+    // var m USES `moment.js` TO RETRIEVE THE CURRENT DATE AND TIME.
     var m = moment().format("dddd, MMMM Do YYYY, h:mm a");
     console.log(m);
 
-    // console.log(moment().format("dddd, MMMM Do YYYY, h:mm a"));
-    // console.log(moment().format("h:mm a"));
-    // console.log(moment().format("h A"));
-    // console.log(moment("8 PM", "h A"));
-
+    // THIS COMMAND INSERTS THE CURRENT DATE AND TIME FROM THE PREVIOUS LINE INTO THE `p` TAG WITH THE `id` "currentDay".
     $("#currentDay").html(m);
 
+    // THE ARRAY `timeblock` CONTAINS THE LIST OF HOUR TIMEBLOCKS FOR THE SCHEDULE.
     var timeblock = [
         "8 AM",
         "9 AM",
@@ -25,6 +25,11 @@ $(document).ready(function () {
         "5 PM",
     ];
 
+    // THE for loop WILL CONSTRUCT THE ROWS OF THE CALENDAR WITHIN THE HTML `container` AND NEST THE COLUMNS `time`, `activity`, and `save` IN EACH ROW.
+    // EACH ROW AND COLUMN IS ASSIGNED A CLASS.  THE HOURS FROM THE ARRAY ARE ADDED TO THE `time` COLUMN.
+    // 'activityInput' IS APPENDED TO THE `activity` COLUMN.  `activity`, and `save` COLUMNS ARE ASSIGNED `data-timeblock`
+    // SO THAT THEIR INFORMATION CAN BE RETRIEVED LATER.
+
     for (var i = 0; i < timeblock.length; i++) {
 
         var row = $("<div>");
@@ -36,7 +41,7 @@ $(document).ready(function () {
 
         var activity = $("<div>");
         activity.addClass("col-9");
-        activity.attr("id", "" + (timeblock[i]));
+        activity.attr("id", timeblock[i]);
 
         var activityInput = $("<textarea>");
         activityInput.attr("data-timeblock", timeblock[i]);
@@ -47,6 +52,10 @@ $(document).ready(function () {
         save.addClass("saveBtn");
         save.attr("data-timeblock", timeblock[i]);
         save.text("SAVE");
+
+        // THE ON-CLICK EVENT LISTENER IS ADDED TO THE SAVE COLUMN AND THE FUNCTION CREATES VARIABLES  
+        // TO STORE THE TIME AND THE USER INPUT FOR THAT ROW OF THE TIMEBLOCK TO LOCAL STORAGE.
+        // AN ALERT IS ISSUED IF THE USER DOES NOT INPUT INFORMATION.
 
         save.on("click", function (event) {
 
@@ -66,39 +75,42 @@ $(document).ready(function () {
 
         });
 
-        // console.log(localStorage.getItem(timeblock[i]) !== null);
-        // console.log(activityInput);
+        // IF THERE IS INFORMATION STORED WITHIN `localStorage` jQuery WILL RETRIEVE THE TIME `key` AND ACTIVITY `event`.
+        // THIS INFORMATION WILL BE DISPLAYED IN THE `actvity` COLUMN AT THE APPROPRIATE TIME.
 
         if (localStorage.getItem(timeblock[i]) !== null) {
-            //     activityInput.value = localStorage.getItem(timeblock[i]);
+
             activityInput.text(localStorage.getItem(timeblock[i]));
         }
 
-        // var h = moment().format("h A");
+        // var h WILL RETRIEVE ONLY THE HOUR PROPERTY OF THE CURRENT TIME.
         var h = moment().hour();
-        // var h = moment().get("hour", "A");
-        console.log(h);
+        // console.log(h);
 
+        // IF THE CURRENT HOUR IS GREATER THAN THE HOUR FROM THE `timeblock` ARRAY, ASSIGN CLASS PAST (GREY);
+        // IF THE CURRENT HOUR IS LESS THAN THE HOUR FROM THE `timeblock` ARRAY, ASSIGN CLASS FUTURE (GREEN);
+        // OTHERWISE, ASSIGN CLASS PRESENT (RED).
+        
         if (moment().hour() > moment(timeblock[i], "h A").hour()) {
-            // assign class past
-            activity.addClass("past");        
-        }
 
+            activity.addClass("past");
+        }
         else if (moment().hour() < moment(timeblock[i], "h A").hour()) {
-            // assign class future
-            activity.addClass("future");
-            // activity.addClass("present");
-        }
 
+            activity.addClass("future");
+        }
         else {
-            //assign class present
-            // activity.addClass("future");
+            
             activity.addClass("present");
         }
+
+        // AS EACH CYCLE OF THE LOOP IS COMPLETED, THE `time`, `activity`, and `save` COLUMNS ARE APPENDED TO THE DYNAMIC `row` div.
 
         row.append(time);
         row.append(activity);
         row.append(save);
+
+        // ONCE THE COLUMNS ARE ADDED TO THE ROW, THE ROW IS ADDED TO THE div "container" FROM THE `index.html` file.
 
         $(".container").append(row);
 

@@ -82,6 +82,8 @@ Tried changing the comparison operators.  Tried changing the class assignments. 
 
 After various attempts and searches, discovered that jQuery has a method `.hour()` that will retrieve ONLY the current hour; ignoring the other properties of time; ultimately allowing for a comparison of the current time to the time in the array `timeblock`.  
 
-Something that I have learned in the process of this project is that I should have paid closer attention to the `style.css` file provided; I would have structured the dynamic html differently and assigned classes accordingly.  When I started, I was focused on how to create the structure of the html using jQuery; I was not thinking about the styling.
+Something that I have learned in the process of this project is that I should have paid closer attention to the `style.css` file provided; I would have structured the dynamic html differently and assigned classes accordingly.  When I started, I was focused on how to create the structure of the html using jQuery; I was not thinking about the styling.  Ultimately, ended up adding to the `style.css` in order to outline the borders of the rows and columns in the window.
+
+In the future, I will investigate all documentation more closely and be able to create a mental map (pseudocode) before I begin making changes.
 
 
