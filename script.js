@@ -2,8 +2,13 @@ $(document).ready(function () {
 
     $(".container").show();
 
-    var m = moment().format('dddd, MMMM Do YYYY, h:mm a');
+    var m = moment().format("dddd, MMMM Do YYYY, h:mm a");
     console.log(m);
+
+    // console.log(moment().format("dddd, MMMM Do YYYY, h:mm a"));
+    // console.log(moment().format("h:mm a"));
+    // console.log(moment().format("h A"));
+    // console.log(moment("8 PM", "h A"));
 
     $("#currentDay").html(m);
 
@@ -61,13 +66,30 @@ $(document).ready(function () {
 
         });
 
-        console.log(localStorage.getItem(timeblock[i]) !== null);
-        console.log(activityInput);
+        // console.log(localStorage.getItem(timeblock[i]) !== null);
+        // console.log(activityInput);
 
         if (localStorage.getItem(timeblock[i]) !== null) {
             //     activityInput.value = localStorage.getItem(timeblock[i]);
             activityInput.text(localStorage.getItem(timeblock[i]));
         }
+
+
+        if (moment() > moment(timeblock[i], "h A")) {
+            // assign class past
+            activity.addClass("past");        
+        }
+
+        else if (moment() < moment(timeblock[i], "h A")) {
+            // assign class future
+            activity.addClass("future");
+        }
+
+        else {
+            //assign class present
+            activity.addClass("present");
+        }
+
 
         row.append(time);
         row.append(activity);
@@ -76,9 +98,6 @@ $(document).ready(function () {
         $(".container").append(row);
 
     };
-
-
-
 
 
 });

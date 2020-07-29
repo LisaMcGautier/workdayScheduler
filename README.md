@@ -17,18 +17,18 @@ SO THAT I can manage my time effectively
 
 ```
 GIVEN I am using a daily planner to create a schedule
-[]WHEN I open the planner
-[]THEN the current day is displayed at the top of the calendar
-[]WHEN I scroll down
-[]THEN I am presented with timeblocks for standard business hours
+[X]WHEN I open the planner
+[X]THEN the current day is displayed at the top of the calendar
+[X]WHEN I scroll down
+[X]THEN I am presented with timeblocks for standard business hours
 []WHEN I view the timeblocks for that day
 []THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-[]WHEN I click into a timeblock
-[]THEN I can enter an event
-[]WHEN I click the save button for that timeblock
-[]THEN the text for that event is saved in local storage
-[]WHEN I refresh the page
-[]THEN the saved events persist
+[X]WHEN I click into a timeblock
+[X]THEN I can enter an event
+[X]WHEN I click the save button for that timeblock
+[X]THEN the text for that event is saved in local storage
+[X]WHEN I refresh the page
+[X]THEN the saved events persist
 ```
 
 7/26
@@ -71,3 +71,5 @@ Removed lines from the previous version of script.js that have been commented ou
 
 Struggled with proper placement and syntax of `localStorage.getItem()` which needed to be placed OUTSIDE of the `save.on("click", function (event)` but inside the `for loop` (SCOPE).
 Also struggled with finding the right syntax and command language to return the keys and values within local storage.
+
+Played with moment.js formatting in the console, trying to leverage the existing array `timeblock` for the comparison of current time with `time` column.
