@@ -74,22 +74,27 @@ $(document).ready(function () {
             activityInput.text(localStorage.getItem(timeblock[i]));
         }
 
+        // var h = moment().format("h A");
+        var h = moment().hour();
+        // var h = moment().get("hour", "A");
+        console.log(h);
 
-        if (moment() > moment(timeblock[i], "h A")) {
+        if (moment().hour() > moment(timeblock[i], "h A").hour()) {
             // assign class past
             activity.addClass("past");        
         }
 
-        else if (moment() < moment(timeblock[i], "h A")) {
+        else if (moment().hour() < moment(timeblock[i], "h A").hour()) {
             // assign class future
             activity.addClass("future");
+            // activity.addClass("present");
         }
 
         else {
             //assign class present
+            // activity.addClass("future");
             activity.addClass("present");
         }
-
 
         row.append(time);
         row.append(activity);

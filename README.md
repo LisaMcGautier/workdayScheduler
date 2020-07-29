@@ -21,8 +21,8 @@ GIVEN I am using a daily planner to create a schedule
 [X]THEN the current day is displayed at the top of the calendar
 [X]WHEN I scroll down
 [X]THEN I am presented with timeblocks for standard business hours
-[]WHEN I view the timeblocks for that day
-[]THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+[X]WHEN I view the timeblocks for that day
+[X]THEN each timeblock is color coded to indicate whether it is in the past, present, or future
 [X]WHEN I click into a timeblock
 [X]THEN I can enter an event
 [X]WHEN I click the save button for that timeblock
@@ -61,7 +61,7 @@ Currently working on the `save.on("click", function(event)`, using an `alert` an
 
 Added an attribute `data-timeblock` to both the activity and save columns.  In order to save the activityInput, local storage requires a key and a value.
 
-It took a long time and help from google, jquery.com, and stackoverflow (https://stackoverflow.com/questions/4191386/jquery-how-to-find-an-element-based-on-a-data-attribute-value), but I was able find the `time` value and `activity` input by traversing the DOM in order to be able to save them into variables `timeblockId` and `userInput` and create the key and value required for local storage.
+It took a long time and help from google, jquery.com, and stackoverflow [https://stackoverflow.com/questions/4191386/jquery-how-to-find-an-element-based-on-a-data-attribute-value], but I was able find the `time` value and `activity` input by traversing the DOM in order to be able to save them into variables `timeblockId` and `userInput` and create the key and value required for local storage.
 
 Copied the links for both jQuery CDN (for google) and for moment.js as suggested by the instructor, but discovered that index.html provided already contains `script src` tags that achieve the objective.
 
@@ -72,4 +72,16 @@ Removed lines from the previous version of script.js that have been commented ou
 Struggled with proper placement and syntax of `localStorage.getItem()` which needed to be placed OUTSIDE of the `save.on("click", function (event)` but inside the `for loop` (SCOPE).
 Also struggled with finding the right syntax and command language to return the keys and values within local storage.
 
-Played with moment.js formatting in the console, trying to leverage the existing array `timeblock` for the comparison of current time with `time` column.
+Played with moment.js formatting in the console, trying to leverage the existing array `timeblock` for the comparison of current time with `time` column.  Created a conditional moment comparison and assigned classes to activity column.
+
+7/29
+
+Stayed up late just to see the calendar turn green.  Checked again this morning, and the `present` background color is not working as expected.  Working on a solution...
+
+Tried changing the comparison operators.  Tried changing the class assignments.  Tried changing the expression of the variable h.
+
+After various attempts and searches, discovered that jQuery has a method `.hour()` that will retrieve ONLY the current hour; ignoring the other properties of time; ultimately allowing for a comparison of the current time to the time in the array `timeblock`.  
+
+Something that I have learned in the process of this project is that I should have paid closer attention to the `style.css` file provided; I would have structured the dynamic html differently and assigned classes accordingly.  When I started, I was focused on how to create the structure of the html using jQuery; I was not thinking about the styling.
+
+
