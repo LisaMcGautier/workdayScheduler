@@ -63,4 +63,11 @@ Added an attribute `data-timeblock` to both the activity and save columns.  In o
 
 It took a long time and help from google, jquery.com, and stackoverflow (https://stackoverflow.com/questions/4191386/jquery-how-to-find-an-element-based-on-a-data-attribute-value), but I was able find the `time` value and `activity` input by traversing the DOM in order to be able to save them into variables `timeblockId` and `userInput` and create the key and value required for local storage.
 
+Copied the links for both jQuery CDN (for google) and for moment.js as suggested by the instructor, but discovered that index.html provided already contains `script src` tags that achieve the objective.
 
+Replaced the inner html of `<p> id = currentDay` with the current moment as provided by moment.js.
+
+Removed lines from the previous version of script.js that have been commented out.
+
+Struggled with proper placement and syntax of `localStorage.getItem()` which needed to be placed OUTSIDE of the `save.on("click", function (event)` but inside the `for loop` (SCOPE).
+Also struggled with finding the right syntax and command language to return the keys and values within local storage.

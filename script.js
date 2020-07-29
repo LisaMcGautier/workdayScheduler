@@ -2,6 +2,11 @@ $(document).ready(function () {
 
     $(".container").show();
 
+    var m = moment().format('dddd, MMMM Do YYYY, h:mm a');
+    console.log(m);
+
+    $("#currentDay").html(m);
+
     var timeblock = [
         "8 AM",
         "9 AM",
@@ -15,17 +20,15 @@ $(document).ready(function () {
         "5 PM",
     ];
 
-
-
     for (var i = 0; i < timeblock.length; i++) {
 
         var row = $("<div>");
-        row.addClass("row");    
-    
+        row.addClass("row");
+
         var time = $("<div>");
         time.addClass("col-2");
         time.text(timeblock[i]);
-    
+
         var activity = $("<div>");
         activity.addClass("col-9");
         activity.attr("id", "" + (timeblock[i]));
@@ -34,41 +37,47 @@ $(document).ready(function () {
         activityInput.attr("data-timeblock", timeblock[i]);
         activity.append(activityInput);
 
-    
         var save = $("<div>");
         save.addClass("col-1");
         save.addClass("saveBtn");
         save.attr("data-timeblock", timeblock[i]);
-        
-        save.on("click", function(event) {    
-            alert("activity saved");
-            // console.log(event);
-            // console.log(event.target);
-            // console.log(event.target.dataset);
-            // console.log(event.target.dataset.timeblock);
+        save.text("SAVE");
+
+        save.on("click", function (event) {
 
             var timeblockId = (event.target.dataset.timeblock);
             console.log(timeblockId);
 
-            // console.log($(".col-9").find`[data-timeblock='${timeblockId}']`);
-            // console.log($("textarea[data-timeblock='" + timeblockId + "']").val());
-            
             var userInput = $("textarea[data-timeblock='" + timeblockId + "']").val();
             console.log(userInput);
 
-            localStorage.setItem(timeblockId, userInput);
-            
-            // console.log(activity);
-            // console.log(time);
+            if (userInput == "") {
+                alert("Please enter an activity");
+            }
+            else {
+                localStorage.setItem(timeblockId, userInput);
+                alert("Activity saved for " + timeblockId);
+            }
+
         });
-       
+
+        console.log(localStorage.getItem(timeblock[i]) !== null);
+        console.log(activityInput);
+
+        if (localStorage.getItem(timeblock[i]) !== null) {
+            //     activityInput.value = localStorage.getItem(timeblock[i]);
+            activityInput.text(localStorage.getItem(timeblock[i]));
+        }
+
         row.append(time);
         row.append(activity);
-        row.append(save);    
-            
+        row.append(save);
+
         $(".container").append(row);
-    
-    }
+
+    };
+
+
 
 
 
