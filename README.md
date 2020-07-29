@@ -87,3 +87,7 @@ Something that I have learned in the process of this project is that I should ha
 In the future, I will investigate all documentation more closely and be able to create a mental map (pseudocode) before I begin making changes.
 
 
+![Screenshot (23)](https://user-images.githubusercontent.com/62854999/88847745-775b9d80-d1b5-11ea-9f04-8fdeb13d8810.png)
+![Screenshot (24)](https://user-images.githubusercontent.com/62854999/88847750-79256100-d1b5-11ea-8e10-c1d524547a4c.png)
+![Screenshot (25)](https://user-images.githubusercontent.com/62854999/88847753-7c205180-d1b5-11ea-9fda-37578257ef6f.png)
+![Screenshot (26)](https://user-images.githubusercontent.com/62854999/88847756-7dea1500-d1b5-11ea-8e75-3ac5a9e6ed96.png)
